@@ -41,4 +41,5 @@ todo
 /node_modules
 
 /.idea
+.idea/library.iml
 .idea
