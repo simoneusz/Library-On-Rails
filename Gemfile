@@ -48,6 +48,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'faker'
 end
 
 group :development do
