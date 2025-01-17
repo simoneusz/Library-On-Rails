@@ -1,8 +1,10 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
+    <!--TODO image here-->
     <h5 class="card-title"><%= @book.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @book.author_name %></h6>
     <p class="card-text"><%= @book.description %></p>
+    <p class="card-text">Status: <%= @book.status %></p>
     <%= render partial: "layouts/likes", locals: { book: @book } %>
   </div>
 </div>
