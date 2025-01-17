@@ -1,0 +1,12 @@
+<div class="card-container">
+<% @books.each do |book| %>
+    <div class="card"  style="width: 18rem;">
+      <div class="card-body">
+          <h5 class="card-title"><%= book.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= book.author_name %></h6>
+          <p class="card-text"><%= book.description %></p>
+          <%= link_to 'More..', book_path(book), class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>
+</div>
