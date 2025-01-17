@@ -1,0 +1,10 @@
+<%= tag.div id: dom_id(book, :likes), class: "d-flex" do %>
+  <%= button_to like_book_path(book), method: :patch, remote: true, class: "border-0 bg-transparent svg-icon" do %>
+    <% if book.liked_by?(current_user) %>
+      <i class="bi bi-suit-heart-fill svg-red"></i>
+    <% else %>
+      <i class="bi bi-suit-heart"></i>
+    <% end %>
+  <% end %>
+  <p class="main-color"><%= book.likes_count %></p>
+<% end %>

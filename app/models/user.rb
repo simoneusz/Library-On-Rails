@@ -6,8 +6,8 @@ class User
          :recoverable, :rememberable, :validatable
 
   ## Database authenticatable
-  field :email,              type: String, default: ""
-  field :encrypted_password, type: String, default: ""
+  field :email,              type: String, default: ''
+  field :encrypted_password, type: String, default: ''
 
   ## Recoverable
   field :reset_password_token,   type: String
@@ -39,4 +39,5 @@ class User
 
   has_many :comments
   has_many :histories
+  has_many :likes
 end

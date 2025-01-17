@@ -13,10 +13,14 @@ class Book
 
   has_many :comments
   has_many :histories
-
+  has_many :likes, as: :likeable
   validates :name, :author_name, :description, :status, presence: true
   validates_inclusion_of :status, in: %w[In Out], allow_blank: true
   def to_param
     URI.encode_www_form_component(name)
+  end
+
+  def liked_by?(user)
+    likes.where(user: user).exists?
   end
 end
