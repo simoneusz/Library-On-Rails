@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
   def index
-    @books = Book.all
+    @books = Book.page(params[:page]).per(5)
   end
 
   def show

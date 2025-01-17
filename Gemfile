@@ -46,9 +46,9 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  gem 'faker'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'faker'
 end
 
 group :development do
@@ -68,4 +68,6 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'kaminari'
+gem 'kaminari-mongoid'
 gem 'mongoid'
