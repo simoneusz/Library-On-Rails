@@ -71,3 +71,5 @@ end
 gem 'kaminari'
 gem 'kaminari-mongoid'
 gem 'mongoid'
+
+gem 'devise', '~> 4.9'

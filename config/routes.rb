@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  root 'books#index'
+
+  devise_for :users
+
   resources :comments
-  root 'posts#index'
   resources :posts
   resources :books, only: %i[index show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
