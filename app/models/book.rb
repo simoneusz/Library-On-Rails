@@ -15,7 +15,7 @@ class Book
   has_many :histories
 
   validates :name, :author_name, :description, :status, presence: true
-
+  validates_inclusion_of :status, in: %w[In Out], allow_blank: true
   def to_param
     URI.encode_www_form_component(name)
   end
