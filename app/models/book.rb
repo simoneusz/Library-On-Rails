@@ -15,4 +15,8 @@ class Book
   has_many :histories
 
   validates :name, :author_name, :description, :status, presence: true
+
+  def to_param
+    URI.encode_www_form_component(name)
+  end
 end
