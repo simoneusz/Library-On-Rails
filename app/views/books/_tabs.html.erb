@@ -12,6 +12,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="card-info mt-3">
+      <%= render partial: "layouts/rating", local: { book: @book } %>
       <h6 class="card-subtitle mb-2 text-muted"><%= @book.author_name %></h6>
       <p class="card-text card-description"><%= @book.description %></p>
       <p class="card-text">Status: <%= @book.available %></p>
