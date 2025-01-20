@@ -16,11 +16,6 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :status, "Status", class: "form-label" %>
-      <%= f.select :status, options_for_select([["In", "In"], ["Out", "Out"]], @book.status), { prompt: "Enter status" }, class: "form-control", required: true %>
-    </div>
-
-    <div class="form-group">
       <%= f.label :image, "Image", class: "form-label" %>
       <%= f.file_field :image, class: "form-control-file" %>
       <% if @book.image.present? %>

@@ -10,15 +10,14 @@ class Book
   field :description, type: String
   field :image, type: String
   mount_uploader :image, BookPreviewUploader
-  field :status, type: String
+  field :available, type: Boolean, default: false
   field :likes_count, type: Integer, default: 0
   field :taken_count, type: Integer, default: 0
 
   has_many :comments
   has_many :histories
   has_many :likes, as: :likeable
-  validates :name, :author_name, :description, :status, presence: true
-  validates_inclusion_of :status, in: %w[In Out], allow_blank: true
+  validates :name, :author_name, :description, presence: true
 
   before_save :set_slug
   def to_param
@@ -27,6 +26,21 @@ class Book
 
   def liked_by?(user)
     likes.where(user: user).exists?
+  end
+
+  def borrow_book(user)
+    return false unless available
+
+    histories.create(user: user, taken_at: Time.current)
+    update(available: false)
+  end
+
+  def return_book
+    history = histories.where(returned_at: nil).last
+    return false unless history
+
+    history.update(returned_at: Time.current)
+    update(available: true)
   end
 
   private

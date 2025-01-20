@@ -6,7 +6,7 @@
     <button class="nav-link" id="comments-tab" data-bs-toggle="tab" data-bs-target="#comments" type="button" role="tab" aria-controls="comments" aria-selected="false">Comments</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+    <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">History</button>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -14,11 +14,11 @@
     <div class="card-info mt-3">
       <h6 class="card-subtitle mb-2 text-muted"><%= @book.author_name %></h6>
       <p class="card-text card-description"><%= @book.description %></p>
-      <p class="card-text">Status: <%= @book.status %></p>
+      <p class="card-text">Status: <%= @book.available %></p>
       <%= render partial: "layouts/likes", locals: { book: @book } %>
     </div>
   </div>
-  <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+<div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
 
     <div class="comment-form mt-4">
       <%= render partial: 'comments/form', locals:{ book: @book } %>
@@ -26,6 +26,6 @@
     <%= render @book.comments %>
 
   </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+  <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
   </div>
 </div>
