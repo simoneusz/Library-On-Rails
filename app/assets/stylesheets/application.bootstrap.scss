@@ -14,3 +14,26 @@ body{
   border: none;
   background-color: transparent;
 }
+
+// MEDIA media Media
+
+@media (max-width: 320px) {}
+@media (max-width: 768px) {}
+@media (max-width: 1024px) {
+  .card-aside{
+    align-self: center;
+  }
+  .card-wrapper{
+    flex-direction: column;
+  }
+  .card-main{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .card-info{
+    flex-grow: 1;
+  }
+}
+@media (max-width: 1220px) {}
+@media (max-width: 1440px) {}
