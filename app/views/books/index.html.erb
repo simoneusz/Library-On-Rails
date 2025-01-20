@@ -1,13 +1,22 @@
 <div class="card-container">
   <% @books.each do |book| %>
-      <div class="card"  style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title"><%= book.name %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= book.author_name.truncate(50) %></h6>
-            <p class="card-text"><%= book.description.truncate(50) %></p>
-            <%= link_to 'More..', book_path(book), class: 'btn btn-primary' %>
+
+    <div class="book-top">
+
+        <div class="card-item"  style="width: 18rem;">
+          <%= link_to book_path(book), class:"card-link" do  %>
+            <%= image_tag book.image.url, alt: book.name, class: "card-img-top " %>
+          <% end %>
+          <div class="card-body">
+              <h5 class="card-title"><%= book.name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= book.author_name.truncate(50) %></h6>
+              <p class="card-text"><%= book.description.truncate(50) %></p>
+          </div>
         </div>
-      </div>
+
+    </div>
+
   <% end %>
+
 </div>
 <%= paginate @books %>

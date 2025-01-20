@@ -4,8 +4,8 @@
 }
 .card-container{
   display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
+  flex-direction: row;
+  gap: 10px;
 }
 .card-wrapper > *{
 }
@@ -15,9 +15,12 @@
 .card-main{
   flex: 1 1 auto;
 }
-.card-body{
+.card-info, .card-body{
   background-color: var(--secondary-bg-color);
   padding: 10px;
+
+}
+.card-info{
   border-radius: 12px;
 }
 .card-tabs{
@@ -30,4 +33,7 @@
 }
 .card-description{
   white-space: pre-line
+}
+.card-item{
+  flex-shrink: 0;
 }
