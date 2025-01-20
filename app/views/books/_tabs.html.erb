@@ -24,7 +24,7 @@
     <div class="comment-form mt-4">
       <%= render partial: 'comments/form', locals:{ book: @book } %>
     </div>
-    <%= render @book.comments %>
+    <%= render @book.comments.reverse %>
 
   </div>
   <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
