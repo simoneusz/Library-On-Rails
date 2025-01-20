@@ -1,11 +1,31 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show like]
+  before_action :set_book, only: %i[show edit update destroy like]
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
   def index
     @books = Book.page(params[:page]).per(5)
   end
 
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to @book, notice: 'Book was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  def edit; end
   def show; end
+  def update; end
+
+  def destroy
+    @book.destroy
+    redirect_to books_url, notice: 'Book was successfully destroyed.'
+  end
 
   def like
     if @book.liked_by?(current_user)
@@ -30,5 +50,9 @@ class BooksController < ApplicationController
 
   def set_book
     @book = Book.find_by!(name: URI.decode_www_form_component(params[:id].to_s))
+  end
+
+  def book_params
+    params.require(:book).permit(:name, :author_name, :description, :status, :image)
   end
 end

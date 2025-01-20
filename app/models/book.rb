@@ -7,6 +7,7 @@ class Book
   field :author_name, type: String
   field :description, type: String
   field :image, type: String
+  mount_uploader :image, BookPreviewUploader
   field :status, type: String
   field :likes_count, type: Integer, default: 0
   field :taken_count, type: Integer, default: 0
