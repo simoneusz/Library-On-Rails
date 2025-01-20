@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update destroy like]
+  before_action :set_book, only: %i[show edit update destroy like borrow return]
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
   def index
     @books = Book.page(params[:page]).per(5)
@@ -39,6 +39,22 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @book }
       format.js
+    end
+  end
+
+  def borrow
+    if @book.borrow_book(current_user)
+      redirect_to @book, notice: 'Book borrowed successfully.'
+    else
+      redirect_to @book, notice: 'Book is unavailable.'
+    end
+  end
+
+  def return
+    if @book.return_book
+      redirect_to @book, notice: 'Book returned successfully.'
+    else
+      redirect_to @book, notice: 'Error while returning book.'
     end
   end
 

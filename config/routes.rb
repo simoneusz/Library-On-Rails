@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :books do
-    patch :like, on: :member
     resources :comments, only: %i[create]
+    member do
+      patch :like
+      post :borrow
+      post :return
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
