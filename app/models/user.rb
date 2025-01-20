@@ -40,4 +40,6 @@ class User
   has_many :comments
   has_many :histories
   has_many :likes
+
+  validates :username, presence: true, uniqueness: true
 end
