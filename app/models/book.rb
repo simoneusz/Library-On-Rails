@@ -10,7 +10,7 @@ class Book
   field :description, type: String
   field :image, type: String
   mount_uploader :image, BookPreviewUploader
-  field :available, type: Boolean, default: false
+  field :available, type: Boolean, default: true
   field :likes_count, type: Integer, default: 0
   field :taken_count, type: Integer, default: 0
 
