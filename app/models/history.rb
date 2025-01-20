@@ -1,4 +1,5 @@
 class History
+  include ActionView::Helpers::DateHelper
   include Mongoid::Document
   include Mongoid::Timestamps
 
