@@ -49,7 +49,7 @@ class BooksController < ApplicationController
   end
 
   def set_book
-    @book = Book.find_by!(name: URI.decode_www_form_component(params[:id].to_s))
+    @book = Book.find_by(slug: params[:id])
   end
 
   def book_params
