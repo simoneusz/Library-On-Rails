@@ -73,3 +73,5 @@ gem 'kaminari-mongoid'
 gem 'mongoid'
 
 gem 'devise', '~> 4.9'
+gem 'carrierwave', '~> 3.0'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
