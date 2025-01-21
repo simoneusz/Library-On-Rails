@@ -1,4 +1,3 @@
-
 .rate {
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px
@@ -19,7 +18,7 @@
   width: 1em;
   font-size: 30px;
   font-weight: 300;
-  color: #FFD600;
+  color: var(--rating-color);
   cursor: pointer
 }
 
