@@ -11,11 +11,13 @@ class Book
   field :image, type: String
   mount_uploader :image, BookPreviewUploader
   field :available, type: Boolean, default: true
+  field :average_rating, type: Float, default: 0
   field :likes_count, type: Integer, default: 0
   field :taken_count, type: Integer, default: 0
 
   has_many :comments
   has_many :histories
+  has_many :ratings
   has_many :likes, as: :likeable
   validates :name, :author_name, :description, presence: true
 

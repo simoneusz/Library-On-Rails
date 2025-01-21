@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       post :borrow
       post :return
     end
+    resources :ratings, only: %i[create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

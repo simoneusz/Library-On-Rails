@@ -1,17 +1,15 @@
-<div class=" d-flex justify-content-center mt-5">
-  <div class=" text-center mb-5">
-    <div class="rating">
-      <input type="radio" name="rating" value="5" id="5">
-      <label for="5">☆</label>
-      <input type="radio" name="rating" value="4" id="4">
-      <label for="4">☆</label>
-      <input type="radio" name="rating" value="3" id="3">
-      <label for="3">☆</label>
-      <input type="radio" name="rating" value="2" id="2">
-      <label for="2">☆</label>
-      <input type="radio" name="rating" value="1" id="1">
-      <label for="1">☆</label>
-    </div>
-    <div class="buttons  mt-0"> <button class="btn btn-info px-4 py-1 rating-submit ">Submit</button> </div>
+<div class="d-flex justify-content-center mt-5">
+  <div class="text-center mb-5">
+    <%= form_with model: [book, Rating.new], local: true do |f| %>
+      <div class="rating">
+        <% (1..5).reverse_each do |stars| %>
+          <%= f.radio_button :stars, stars, id: "rating_#{stars}" , checked: (book.ratings.find_by(user: current_user)&.stars == stars) %>
+          <%= f.label :stars, '☆', for: "rating_#{stars}" %>
+        <% end %>
+      </div>
+      <div class="buttons mt-0">
+        <%= f.submit "Submit", class: "btn btn-info px-4 py-1" %>
+      </div>
+    <% end %>
   </div>
 </div>

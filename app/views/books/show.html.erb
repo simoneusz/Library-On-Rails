@@ -9,6 +9,10 @@
   <% end %>
   <div class="card-main">
     <h2> <%= @book.name %></h2>
+    <p class="average-rating">
+      <%= @book.average_rating.round(2) %>
+    </p>
+    <%= render partial: "layouts/rating", locals: { book: @book }%>
     <div class="card-info">
       <div class="card-tabs">
         <%= render partial: "tabs", locals: { book: @book }%>

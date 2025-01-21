@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update destroy like borrow return]
+  before_action :set_book, only: %i[show edit update destroy like update_rating borrow return]
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
   def index
     @books = Book.page(params[:page]).per(5)
@@ -56,6 +56,10 @@ class BooksController < ApplicationController
     else
       redirect_to @book, notice: 'Error while returning book.'
     end
+  end
+
+  def update_rating
+    @book.rating = @book.ratings
   end
 
   private
