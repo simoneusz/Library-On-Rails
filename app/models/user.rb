@@ -6,6 +6,7 @@ class User
          :recoverable, :rememberable, :validatable
 
   ## Database authenticatable
+  field :username, type: String
   field :email,              type: String, default: ''
   field :encrypted_password, type: String, default: ''
 
@@ -35,11 +36,9 @@ class User
   # field :locked_at,       type: Time
   include Mongoid::Timestamps
 
-  field :username, type: String
-
   has_many :comments
   has_many :histories
   has_many :likes
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 end
