@@ -1,22 +1,31 @@
+<!--<div class="search-container mb-4">-->
+  <%#= search_form_for @q, url: books_path, method: :get, html: { class: "form-inline" } do |f| %>
+<!--    <div class="form-group mr-2">-->
+      <%#= f.search_field :name_cont, placeholder: "Название книги", class: "form-control" %>
+<!--    </div>-->
+<!--    <div class="form-group mr-2">-->
+      <%#= f.search_field :author_name_cont, placeholder: "Автор", class: "form-control" %>
+<!--    </div>-->
+<!--    <div class="form-group">-->
+      <%#= f.submit "Поиск", class: "btn btn-primary" %>
+<!--    </div>-->
+  <%# end %>
+<!--</div>-->
+
 <div class="card-container">
   <% @books.each do |book| %>
-
-    <div class="book-top">
-
-        <div class="card-item"  style="width: 18rem;">
-          <%= link_to book_path(book), class:"card-link" do  %>
-            <%= image_tag book.image.url, alt: book.name, class: "card-img-top " %>
-          <% end %>
-          <div class="card-body">
-              <h5 class="card-title"><%= book.name %></h5>
-              <h6 class="card-subtitle mb-2 text-muted"><%= book.author_name.truncate(50) %></h6>
-              <p class="card-text"><%= book.description.truncate(50) %></p>
+    <div class="card-item">
+      <%= link_to book_path(book), class: "card-link" do %>
+        <div class="card-image">
+          <%= image_tag book.image.url, alt: book.name, class: "card-img" %>
+          <div class="chapter-overlay">
+            <span>By:  <%= book.author_name %></span>
           </div>
         </div>
-
+        <div class="card-title">
+          <%= book.name.truncate(25) %>
+        </div>
+      <% end %>
     </div>
-
   <% end %>
-
 </div>
-<%= paginate @books %>

@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack-mongoid.git
+  revision: e75d8112b37146991f73548523e7fc3621c407ff
+  specs:
+    ransack-mongoid (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -249,6 +255,10 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
+    ransack (4.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.11.0)
       psych (>= 4.0.0)
     regexp_parser (2.10.0)
@@ -343,6 +353,8 @@ DEPENDENCIES
   mongoid
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
+  ransack
+  ransack-mongoid!
   rubocop
   rubocop-rails
   selenium-webdriver

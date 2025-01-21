@@ -2,6 +2,9 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy like update_rating borrow return]
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
   def index
+    # TODO: RANSACK
+    # @q = Book.page(params[:page]).ransack(params[:q])
+    # @books = @q.result.page(params[:page]).per(5)
     @books = Book.page(params[:page]).per(5)
   end
 
