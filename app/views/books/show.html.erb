@@ -8,6 +8,8 @@
     </aside>
   <% end %>
   <div class="card-main">
+    <button class="modal-btn modal-btn-open btn btn-danger btn-lg">Delete category</button>
+    <%= render partial: "rating_modal" %>
     <h2> <%= @book.name %></h2>
     <p class="average-rating">
       <%= @book.average_rating.round(2) %>

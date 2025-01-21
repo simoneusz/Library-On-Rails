@@ -1,0 +1,19 @@
+<%= javascript_import_module_tag "views/modal" %>
+
+<div class="custom-modal hidden-modal">
+  <div class="modal-top">
+    <button class="modal-btn-close">⨉</button>
+  </div>
+  <div class="custom-modal-content">
+    <div>
+      <h3>Are you sure? </h3>
+      <p>
+        You have:
+      </p>
+    </div>
+    <%#= button_to "Yes, delete this", category_path(@category), method: :delete, class: "btn btn-danger btn-lg" %>
+    <%#= button_to "No", category_path(@category), method: :get, class: "modal-refuse btn btn-lg" %>
+  </div>
+</div>
+
+<div class="overlay hidden-modal"></div>
