@@ -2,10 +2,14 @@
   <div class="text-center mb-5">
     <%= form_with model: [book, Rating.new], local: true do |f| %>
       <div class="rating">
-        <% (1..5).reverse_each do |stars| %>
-          <%= f.radio_button :stars, stars, id: "rating_#{stars}" , checked: (book.ratings.find_by(user: current_user)&.stars == stars) %>
-          <%= f.label :stars, '☆', for: "rating_#{stars}" %>
-        <% end %>
+        <% user_rating = book.ratings.where(user: current_user).first&.stars || 0%>
+
+        <div class="rating">
+          <% (1..5).reverse_each do |stars| %>
+            <%= f.radio_button :stars, stars, id: "rating_#{stars}", checked: (user_rating == stars) %>
+            <%= f.label :stars, '☆', for: "rating_#{stars}" %>
+          <% end %>
+        </div>
       </div>
       <div class="buttons mt-0">
         <%= f.submit "Submit", class: "btn btn-info px-4 py-1" %>
