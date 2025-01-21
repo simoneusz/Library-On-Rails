@@ -5,14 +5,7 @@
     <button class="modal-btn-close">⨉</button>
   </div>
   <div class="custom-modal-content">
-    <div>
-      <h3>Are you sure? </h3>
-      <p>
-        You have:
-      </p>
-    </div>
-    <%#= button_to "Yes, delete this", category_path(@category), method: :delete, class: "btn btn-danger btn-lg" %>
-    <%#= button_to "No", category_path(@category), method: :get, class: "modal-refuse btn btn-lg" %>
+    <%= render partial: "layouts/rating", locals: {book: book} %>
   </div>
 </div>
 

@@ -8,13 +8,21 @@
     </aside>
   <% end %>
   <div class="card-main">
-    <button class="modal-btn modal-btn-open btn btn-danger btn-lg">Delete category</button>
-    <%= render partial: "rating_modal" %>
+    <%= render partial: "rating_modal", locals: { book: @book } %>
     <h2> <%= @book.name %></h2>
-    <p class="average-rating">
-      <%= @book.average_rating.round(2) %>
-    </p>
-    <%= render partial: "layouts/rating", locals: { book: @book }%>
+    <div class="rating-info">
+
+      <div class="modal-btn modal-btn-open btn">
+        <span class="rating-star">☆</span>
+        <span class="rating-average">
+          <%= @book.average_rating.round(2) %>
+        </span>
+        <span class="rating-votes">
+          <%= number_to_human(@book.ratings.size, format: "%n%u", units: { thousand: 'K', million: 'M' }) %>
+        </span>
+      </div>
+    </div>
+
     <div class="card-info">
       <div class="card-tabs">
         <%= render partial: "tabs", locals: { book: @book }%>

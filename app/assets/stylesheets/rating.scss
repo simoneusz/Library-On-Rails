@@ -55,3 +55,9 @@
 .rating-submit:hover {
   color: #fff
 }
+.rating-star{
+  color: var(--rating-color);
+}
+.rating-star::before{
+  opacity: 0;
+}
