@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'books#index'
 
-  devise_for :users
-
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   resources :posts
   resources :books do
     resources :comments, only: %i[create]
