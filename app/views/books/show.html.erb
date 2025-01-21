@@ -17,7 +17,7 @@
         <span class="rating-average">
           <%= @book.average_rating.round(2) %>
         </span>
-        <span class="rating-votes">
+        <span class="rating-votes text-muted">
           <%= number_to_human(@book.ratings.size, format: "%n%u", units: { thousand: 'K', million: 'M' }) %>
         </span>
       </div>
