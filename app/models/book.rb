@@ -21,6 +21,8 @@ class Book
   has_many :likes, as: :likeable
   validates :name, :author_name, :description, presence: true
 
+  index({ average_rating: -1 })
+
   before_save :set_slug
   def to_param
     slug

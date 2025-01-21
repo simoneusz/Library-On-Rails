@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     # TODO: RANSACK
     # @q = Book.page(params[:page]).ransack(params[:q])
     # @books = @q.result.page(params[:page]).per(5)
+    @top_books = Book.order_by(average_rating: :desc).limit(10)
     @books = Book.page(params[:page]).per(5)
   end
 
