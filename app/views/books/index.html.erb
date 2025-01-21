@@ -67,9 +67,11 @@
               <span class="text-success">In</span>
             <% end %>
           </td>
-          <td>
-            <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-warning btn-sm' %>
-            <%= link_to 'Delete', book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          <td class="table-action">
+            <div class="table-buttons">
+              <%= button_to 'Edit', edit_book_path(book), class: 'btn btn-warning btn-sm' %>
+              <%= button_to 'Delete', book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            </div>
           </td>
         </tr>
       <% end %>
