@@ -31,7 +31,7 @@ function initializeModal() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", initializeModal, { once: true });
+document.addEventListener("DOMContentLoaded", initializeModal);
 
-document.addEventListener("turbo:load", initializeModal, { once: true });
+document.addEventListener("turbo:load", initializeModal);
 
