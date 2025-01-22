@@ -32,7 +32,7 @@
         </td>
         <td class="table-action">
           <div class="table-buttons">
-            <%= button_to 'Edit', edit_book_path(book), class: 'btn btn-warning btn-sm' %>
+            <%= button_to 'Edit', edit_book_path(book), method: :get, class: 'btn btn-warning btn-sm' %>
             <%= form_with url: book_path(book), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'delete-form' do %>
               <%= submit_tag 'Delete', class: 'btn btn-danger btn-sm' %>
             <% end %>
