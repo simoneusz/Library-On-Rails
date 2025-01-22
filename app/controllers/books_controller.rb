@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy like update_rating borrow return]
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
+
   def index
     # TODO: RANSACK
     # @q = Book.page(params[:page]).ransack(params[:q])
@@ -23,7 +24,11 @@ class BooksController < ApplicationController
   end
 
   def edit; end
-  def show; end
+
+  def show
+    add_breadcrumb '<i class="bi bi-house"></i>'.html_safe, :root_path
+    add_breadcrumb @book.name, book_path(@book)
+  end
 
   def update
     if @book.update(book_params)

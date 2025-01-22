@@ -70,6 +70,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'breadcrumbs_on_rails'
 gem 'kaminari'
 gem 'kaminari-mongoid'
 gem 'mongoid'

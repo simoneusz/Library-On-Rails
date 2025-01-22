@@ -12,10 +12,13 @@
   </head>
 
   <body>
-  <%= render partial: 'layouts/navbar' %>
+    <%= render partial: 'layouts/navbar' %>
     <div class="container">
-      <%= render partial: "layouts/flash" %>
-      <%= yield %>
+      <ol class="breadcrumb">
+        <%= render_breadcrumbs :separator => ' / ' %>
+      </ol>
+        <%= render partial: "layouts/flash" %>
+        <%= yield %>
     </div>
   </body>
 </html>

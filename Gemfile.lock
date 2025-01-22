@@ -94,6 +94,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
+    breadcrumbs_on_rails (4.1.0)
+      railties (>= 5.0)
     bson (5.0.2)
     builder (3.3.0)
     capybara (3.40.0)
@@ -359,6 +361,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  breadcrumbs_on_rails
   capybara
   carrierwave (~> 3.0)
   carrierwave-mongoid
