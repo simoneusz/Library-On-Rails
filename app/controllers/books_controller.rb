@@ -25,7 +25,13 @@ class BooksController < ApplicationController
   def edit; end
   def show; end
 
-  def update; end
+  def update
+    if @book.update(book_params)
+      redirect_to @book, notice: 'Book was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   def destroy
     @book.destroy
