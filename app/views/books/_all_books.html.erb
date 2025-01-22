@@ -11,7 +11,7 @@
     </thead>
     <tbody>
     <% books.each do |book| %>
-      <tr>
+      <tr id="book-<%= book.id %>">
         <td>
           <% if book.image_url.present? %>
             <img src="<%= book.image_url %>" alt="<%= book.name %>" class="img-thumbnail" style="max-height: 100px;max-width:125px;">
@@ -33,7 +33,9 @@
         <td class="table-action">
           <div class="table-buttons">
             <%= button_to 'Edit', edit_book_path(book), class: 'btn btn-warning btn-sm' %>
-            <%= button_to 'Delete', book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            <%= form_with url: book_path(book), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'delete-form' do %>
+              <%= submit_tag 'Delete', class: 'btn btn-danger btn-sm' %>
+            <% end %>
           </div>
         </td>
       </tr>

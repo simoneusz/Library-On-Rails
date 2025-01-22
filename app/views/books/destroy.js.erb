@@ -1,0 +1,5 @@
+conole.log("destroy outside")
+$("#book-<%= @book.id %>").fadeOut('slow', function() {
+    conole.log("destroy inside")
+    $(this).remove();
+});
