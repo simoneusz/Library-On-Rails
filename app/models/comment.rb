@@ -6,4 +6,6 @@ class Comment
 
   belongs_to :user
   belongs_to :book
+
+  validates :content, presence: true, length: { minimum: 3, maximum: 140 }
 end

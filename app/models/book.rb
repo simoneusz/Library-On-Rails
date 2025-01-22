@@ -19,6 +19,7 @@ class Book
   has_many :histories
   has_many :ratings
   has_many :likes, as: :likeable
+
   validates :name, :author_name, :description, presence: true
 
   index({ average_rating: -1 })
