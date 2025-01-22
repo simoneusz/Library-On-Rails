@@ -14,7 +14,6 @@
     <div class="card-info mt-3">
       <h6 class="card-subtitle mb-2 text-muted"><%= @book.author_name %></h6>
       <p class="card-text card-description"><%= @book.description %></p>
-      <p class="card-text">Status: <%= @book.available %></p>
       <%= render partial: "layouts/likes", locals: { book: @book } %>
     </div>
   </div>
