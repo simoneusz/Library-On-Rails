@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :posts
   resources :books do
     resources :comments, only: %i[create]
     member do
