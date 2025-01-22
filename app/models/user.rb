@@ -12,9 +12,9 @@ class User
   field :reset_password_sent_at, type: Time
   field :remember_created_at, type: Time
 
-  has_many :comments
-  has_many :histories
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :histories, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 end

@@ -15,10 +15,10 @@ class Book
   field :likes_count, type: Integer, default: 0
   field :taken_count, type: Integer, default: 0
 
-  has_many :comments
-  has_many :histories
-  has_many :ratings
-  has_many :likes, as: :likeable
+  has_many :comments, dependent: :destroy
+  has_many :histories, dependent: :destroy
+  has_many :ratings, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
 
   validates :name, :author_name, :description, presence: true
 
