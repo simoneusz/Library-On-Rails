@@ -8,6 +8,7 @@
         <div class="card-info newest">
           <div class="card-title newest"><%= book.name.truncate(15) %></div>
           <div class="card-author newest text-muted">By:  <%= book.author_name.truncate(15) %></div>
+          <%= render partial: "layouts/average_rating", locals: {book: book} %>
         </div>
       <% end %>
     </div>

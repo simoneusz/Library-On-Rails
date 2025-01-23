@@ -1,0 +1,11 @@
+<div class="average-rating">
+  <span class="stars">
+    <% (1..5).each do |star| %>
+      <% if book.average_rating >= star %>
+        <span class="rating-star filled-star">★</span>
+      <% else %>
+        <span class="rating-star empty-star">☆</span>
+      <% end %>
+    <% end %>
+  </span>
+</div>
