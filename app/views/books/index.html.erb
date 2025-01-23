@@ -12,13 +12,18 @@
   <%# end %>
 <!--</div>-->
 
-<h2>Popular books</h2>
-<%= render partial: 'top_books', locals: {books:@top_books} %>
-
-<h2>Newest</h2>
-<%= render partial: 'newest', locals: { books: @books.order({ created_at: :desc }).limit(5) } %>
-<h2>Books</h2>
-<div class="d-flex justify-content-end mb-3">
-  <%= link_to 'Add New Book', new_book_path, class: 'btn btn-primary' %>
-</div>
-<%= render partial: 'all_books', locals: { books: @books } %>
+<section class="popular mt-2">
+  <h2>Popular books</h2>
+  <%= render partial: 'top_books', locals: {books:@top_books} %>
+</section>
+<section class="newest mt-2 mb-5">
+  <h2>Newest</h2>
+  <%= render partial: 'newest', locals: { books: @books.order({ created_at: :desc }).limit(4) } %>
+</section>
+<section class="books">
+  <h2>Books</h2>
+  <div class="d-flex justify-content-end mb-3">
+    <%= link_to 'Add New Book', new_book_path, class: 'btn btn-primary' %>
+  </div>
+  <%= render partial: 'all_books', locals: { books: @books } %>
+</section>
