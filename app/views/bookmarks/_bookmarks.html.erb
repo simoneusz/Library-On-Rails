@@ -24,7 +24,7 @@
       <div class="card bookmark" style="width: 18rem;">
         <div class="card-body bookmark">
           <h5 class="card-title bookmark"><%= bookmark.book.name %></h5>
-          <h6 class="card-subtitle bookmark mb-2 text-muted "><%= bookmark.book.created_at.to_formatted_s(:short) %></h6>
+          <h6 class="card-subtitle bookmark mb-2 text-muted "><%= bookmark.created_at.to_formatted_s(:short) %></h6>
           <p class="card-text bookmark"><%= bookmark.book.description.truncate(140) %></p>
         </div>
       </div>
