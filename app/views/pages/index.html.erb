@@ -1,8 +1,8 @@
 <section class="promo">
   <div class="promo__wrapper">
     <ul class="promo__grid">
-      <% @promos.each do |promo| %>
-        <li class="promo__card" style="background-image: url('images/promo/<%= promo[:image] %>');">
+      <% @promos.each_with_index do |promo, index| %>
+        <li class="promo__card promo__card_<%= index+1 %>" style="background-image: url('images/promo/<%= promo[:image] %>');">
           <h2 class="promo__card-title">
             <%= promo[:title] %>
           </h2>
