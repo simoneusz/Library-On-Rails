@@ -12,9 +12,10 @@
   <%# end %>
 <!--</div>-->
 
+<h2>Popular books</h2>
 <%= render partial: 'top_books', locals: {books:@top_books} %>
 <div class="container mt-5">
-  <h1>Books</h1>
+  <h2>Books</h2>
   <div class="d-flex justify-content-end mb-3">
     <%= link_to 'Add New Book', new_book_path, class: 'btn btn-primary' %>
   </div>
