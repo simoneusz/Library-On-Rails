@@ -124,3 +124,13 @@
   margin-top: 0;
   font-size: 14px;
 }
+.card-subtitle{
+  font-size: 10px;
+  text-decoration: none;
+}
+.bookmarks{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
