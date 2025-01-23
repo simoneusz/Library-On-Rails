@@ -1,6 +1,9 @@
 <div class="card-wrapper">
   <% if @book.image.present? %>
-    <aside class="card-aside">
+    <aside
+      class="card-aside bg-image"
+      style="<%= "background-image: url('#{@book.image.url}');" if request.user_agent =~ /Mobile|Tablet/ %>"
+    >
       <div class="book-image mt-3">
         <%= image_tag @book.image.url, alt: @book.name, class: "img-thumbnail" %>
       </div>
@@ -9,20 +12,21 @@
   <% end %>
   <div class="card-main">
     <%= render partial: "rating_modal", locals: { book: @book } %>
-    <h2> <%= @book.name %></h2>
-    <div class="rating-info">
-      <div class="modal-btn modal-btn-open btn">
-        <span class="rating-star">☆</span>
-        <span class="rating-average">
+    <div class="card-top d-flex align-items-center">
+      <h2> <%= @book.name %></h2>
+      <div class="rating-info">
+        <div class="modal-btn modal-btn-open btn">
+          <span class="rating-star">☆</span>
+          <span class="rating-average">
           <%= @book.average_rating.round(2) %>
         </span>
-        <span class="rating-votes text-muted">
+          <span class="rating-votes text-muted">
           <%= number_to_human(@book.ratings.size, format: "%n%u", units: { thousand: 'K', million: 'M' }) %>
         </span>
+        </div>
       </div>
+      <%= book_bookmark_helper(@book, current_user) %>
     </div>
-    <%= book_bookmark_helper(@book, current_user) %>
-
     <div class="card-info">
       <div class="card-tabs">
         <%= render partial: "tabs", locals: { book: @book }%>
