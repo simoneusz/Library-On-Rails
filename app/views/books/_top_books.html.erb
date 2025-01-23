@@ -5,7 +5,7 @@
         <div class="card-image">
           <%= image_tag book.image.url, alt: book.name, class: "card-img" %>
           <div class="chapter-overlay">
-            <span>By:  <%= book.author_name %></span>
+            <span>By:  <%= book.author_name.truncate(15) %></span>
           </div>
         </div>
         <div class="card-title">
