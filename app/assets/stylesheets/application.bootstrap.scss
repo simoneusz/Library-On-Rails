@@ -31,10 +31,28 @@ body{
   background-color: #fff;
   border-radius: 12px;
 }
+
+
 // MEDIA media Media
 
 @media (max-width: 320px) {}
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  section {
+    width: 100%;
+    height: 50vh;
+    background-size:  cover;
+    scroll-snap-align: start;
+  }
+  .section-container{
+    scrollbar-width: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    scroll-behavior: smooth;
+    overflow: auto;
+    scroll-snap-type: y proximity;
+  }
+}
 @media (max-width: 1024px) {
   .card-aside{
     align-self: center;
