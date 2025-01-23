@@ -1,5 +1,8 @@
 class BookmarksController < ApplicationController
   before_action :set_book, only: %i[create destroy]
+
+  add_breadcrumb '<i class="bi bi-house"></i>'.html_safe, :root_path
+  add_breadcrumb 'books', :books_path
   def create
     logger.info("PARAMS: #{params.inspect}")
     @bookmark = current_user.bookmarks.new(book_id: @book.id)
