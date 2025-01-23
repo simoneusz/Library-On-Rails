@@ -12,24 +12,7 @@
   <%# end %>
 <!--</div>-->
 
-<div class="card-container mt-2 rounded">
-  <% @top_books.each do |book| %>
-    <div class="card-item">
-      <%= link_to book_path(book), class: "card-link" do %>
-        <div class="card-image">
-          <%= image_tag book.image.url, alt: book.name, class: "card-img" %>
-          <div class="chapter-overlay">
-            <span>By:  <%= book.author_name %></span>
-          </div>
-        </div>
-        <div class="card-title">
-          <%= book.name.truncate(25) %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
+<%= render partial: 'top_books', locals: {books:@top_books} %>
 <div class="container mt-5">
   <h1>Books</h1>
   <div class="d-flex justify-content-end mb-3">
