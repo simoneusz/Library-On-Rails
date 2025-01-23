@@ -7,18 +7,21 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
   <%= render partial: 'layouts/navbar' %>
-    <div class="container">
-      <ol class="breadcrumb">
-        <%= render_breadcrumbs :separator => ' / ' %>
-      </ol>
-        <%= render partial: "layouts/flash" %>
-        <%= yield %>
+    <div class="container mt-2">
+      <% unless current_page?(root_path) %>
+        <div class="breadcrumbs">
+          <div class="breadcrumbs-inner px-3 py-1">
+            <%= render_breadcrumbs :separator => ' / ' %>
+          </div>
+        </div>
+      <% end %>
+      <%= render partial: "layouts/flash" %>
+      <%= yield %>
     </div>
   </body>
 </html>
