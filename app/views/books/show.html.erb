@@ -21,11 +21,7 @@
         </span>
       </div>
     </div>
-    <% if current_user.bookmarks.exists?(book: @book) %>
-      <%= button_to "Remove bookmark", book_bookmark_path(@book), method: :delete %>
-    <% else %>
-      <%= button_to "Add to bookmarks", book_bookmark_path(@book), method: :post %>
-    <% end %>
+    <%= book_bookmark_helper(@book, current_user) %>
 
     <div class="card-info">
       <div class="card-tabs">
