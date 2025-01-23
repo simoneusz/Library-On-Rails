@@ -95,3 +95,27 @@
   color: #333;
   line-height: 1.2;
 }
+
+.card-item.newest{
+  width: auto;
+  text-align: start;
+  background-color: transparent;
+}
+
+.card-link.newest{
+  display: flex;
+}
+.card-info.newest{
+  background-color: transparent;
+}
+.card-title.newest{
+  text-wrap: nowrap;
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+.card-author.newest{
+  text-wrap: nowrap;
+  margin-top: 0;
+  font-size: 14px;
+}

@@ -1,7 +1,7 @@
 <div class="books-container">
   <% books.each do |book| %>
     <div class="book-item" id="book-<%= book.id %>">
-      <div class="book-image">
+      <div class="book-image all-image">
         <% if book.image_url.present? %>
           <img src="<%= book.image_url %>" alt="<%= book.name %>" class="img-thumbnail">
         <% else %>

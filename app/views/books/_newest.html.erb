@@ -1,15 +1,13 @@
 <div class="card-container mt-2 rounded">
   <% books.each do |book| %>
-    <div class="card-item">
-      <%= link_to book_path(book), class: "card-link" do %>
-        <div class="card-image">
+    <div class="card-item newest">
+      <%= link_to book_path(book), class: "card-link newest" do %>
+        <div class="card-image newest">
           <%= image_tag book.image.url, alt: book.name, class: "card-img" %>
-          <div class="chapter-overlay">
-            <span>By:  <%= book.author_name.truncate(15) %></span>
-          </div>
         </div>
-        <div class="card-title">
-          <%= book.name.truncate(15) %>
+        <div class="card-info newest">
+          <div class="card-title newest"><%= book.name.truncate(15) %></div>
+          <div class="card-author newest text-muted">By:  <%= book.author_name.truncate(15) %></div>
         </div>
       <% end %>
     </div>
