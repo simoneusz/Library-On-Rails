@@ -9,7 +9,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 500px;
-  grid-template-areas: "first second second""third third fourth""fifth sixth sixth";
+  grid-template-areas:
+        "first second second"
+        "third third fourth"
+        "fifth sixth sixth";
   gap: 20px;
   justify-items: center
 }
@@ -75,5 +78,43 @@
   line-height: 100%;
   width: 288px;
   height: 60px;
+}
 
+.promo__card_1 {
+  grid-area: first;
+
+}
+
+.promo__card_2 {
+  grid-area: second;
+
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start
+}
+
+.promo__card_3 {
+  grid-area: third;
+
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end
+}
+
+.promo__card_4 {
+  grid-area: fourth;
+
+}
+
+.promo__card_5 {
+  grid-area: fifth;
+}
+
+
+.promo__card_6 {
+  /* grid-area: fourth; */
+  /* grid-area: second; */
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
