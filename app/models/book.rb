@@ -34,6 +34,10 @@ class Book
     likes.where(user: user).exists?
   end
 
+  def bookmarked_by?(user)
+    bookmarks.where(user: user).exists?
+  end
+
   def borrow_book(user)
     return false unless available
 

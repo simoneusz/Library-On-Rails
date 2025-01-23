@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  helper ApplicationHelper
   before_action :set_book, only: %i[show edit update destroy like update_rating borrow return]
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
   add_breadcrumb '<i class="bi bi-house"></i>'.html_safe, :root_path
@@ -54,6 +55,19 @@ class BooksController < ApplicationController
     else
       @book.likes.create!(user: current_user)
       @book.inc(likes_count: 1)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to @book }
+      format.js
+    end
+  end
+
+  def bookmark
+    if @book.bookmarked_by?(current_user)
+      @book.bookmarks.where(user: current_user).destroy_all
+    else
+      @book.likes.create!(user: current_user)
     end
 
     respond_to do |format|

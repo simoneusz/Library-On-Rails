@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   end
   resources :books do
     resources :comments, only: %i[create]
+    resource :bookmark, only: %i[create destroy]
     member do
       patch :like
       post :borrow
       post :return
+      post :bookmark
     end
     resources :ratings, only: %i[create]
   end
