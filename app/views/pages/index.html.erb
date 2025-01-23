@@ -1,15 +1,14 @@
 <section class="promo">
   <div class="promo__wrapper">
     <ul class="promo__grid">
-      <% titles = ['Esotericism and Numerology', 'Books in Ukrainian', 'Psychology and Relationships', 'Business Books', 'Fiction', 'Books for Parents']   %>
-      <% titles.each do |item| %>
-        <li class="promo__card promo__card promo__card_1" style=" background-image: url('https://bookhub.com.ua/image/catalog/categoryua/5031dc48efa806ccc0b7397bf4c3f19f10.png') ; ">
+      <% @promos.each do |promo| %>
+        <li class="promo__card" style="background-image: url('images/promo/<%= promo[:image] %>');">
           <h2 class="promo__card-title">
-            <%= item %>
+            <%= promo[:title] %>
           </h2>
           <p class="promo__swiper-txt swiper-no-swiping">
           </p>
-          <%= link_to 'To catalogue', books_path, class:"promo__link button button_white" %>
+          <%= link_to 'To catalogue', books_path, class: 'promo__link button button_white' %>
         </li>
       <% end %>
     </ul>

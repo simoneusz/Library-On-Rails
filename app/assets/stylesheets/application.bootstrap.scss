@@ -11,8 +11,13 @@
 @import 'promo';
 
 body{
+  position: relative;
   background-color: var(--main-bg-color);
   max-width: 100vw;
+  background-image: url("/images/bg.svg") ;
+  background-size: cover ;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .img-thumbnail{
