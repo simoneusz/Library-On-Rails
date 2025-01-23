@@ -14,7 +14,7 @@
 
 <h2>Popular books</h2>
 <%= render partial: 'top_books', locals: {books:@top_books} %>
-<div class="container mt-5">
+<div class="container">
   <h2>Newest</h2>
   <%= render partial: 'newest', locals: { books: @books.order({ created_at: :desc }).limit(5) } %>
   <h2>Books</h2>
