@@ -24,7 +24,13 @@ body{
   border: none;
   background-color: transparent;
 }
-
+.breadcrumbs{
+  display: flex;
+}
+.breadcrumbs-inner{
+  background-color: #fff;
+  border-radius: 12px;
+}
 // MEDIA media Media
 
 @media (max-width: 320px) {}
