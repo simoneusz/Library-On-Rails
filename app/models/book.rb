@@ -19,6 +19,7 @@ class Book
   has_many :histories, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   validates :name, :author_name, :description, presence: true
 
