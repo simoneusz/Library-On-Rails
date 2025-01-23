@@ -1,0 +1,17 @@
+<div class="bookmarks mt-2">
+  <% current_user.bookmarks.each do |bookmark| %>
+    <%= link_to bookmark.book  do %>
+      <div class="card bookmark" style="width: 18rem;">
+        <div class="card-body bookmark">
+
+          <h5 class="card-title bookmark"><%= bookmark.book.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted bookmark"><%= bookmark.book.created_at.to_formatted_s(:short) %></h6>
+
+          <p class="card-text bookmark"><%= bookmark.book.description.truncate(140) %></p>
+
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
