@@ -67,7 +67,9 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'factory_bot', '~> 6.5'
+  gem 'mongoid-rspec'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 6.0'
 end
 
 gem 'breadcrumbs_on_rails'
