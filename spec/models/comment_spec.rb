@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
-  subject(:bookmark) { build(:bookmark) }
+  subject(:comment) { build(:comment) }
 
   describe 'Validations' do
-    it { expect(bookmark).to be_valid }
+    it { expect(comment).to be_valid }
+
+    it { is_expected.to validate_length_of(:content).within(3..140) }
   end
 
   describe 'Associations' do

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
-    user { 'books/show' }
+    content { Faker::Lorem.paragraph }
     association :user
     association :book
   end
