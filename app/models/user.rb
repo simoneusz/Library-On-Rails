@@ -17,5 +17,5 @@ class User
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 
-  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+  validates :username, presence: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 end
