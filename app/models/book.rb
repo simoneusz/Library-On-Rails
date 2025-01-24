@@ -1,9 +1,7 @@
 class Book
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Ransack::Adapters
 
-  field :id, type: Integer
   field :name, type: String
   field :slug, type: String
 
@@ -23,8 +21,11 @@ class Book
   has_many :bookmarks, dependent: :destroy
 
   validates :name, :author_name, :description, presence: true
-  validates :name, uniqueness: true
+  validates :name, :slug, uniqueness: true
+  validates :description, length: { maximum: 1000 }
+
   index({ average_rating: -1 })
+  index({ slug: 1 })
 
   before_save :set_slug
   def to_param
@@ -42,8 +43,7 @@ class Book
   def borrow_book(user)
     return false unless available
 
-    histories.create(user: user, taken_at: Time.current)
-    update(available: false)
+    histories.create(user: user, taken_at: Time.current) && update(available: false)
   end
 
   def return_book

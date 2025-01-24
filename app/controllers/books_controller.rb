@@ -21,7 +21,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to @book, notice: 'Book was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -67,13 +67,9 @@ class BooksController < ApplicationController
     if @book.bookmarked_by?(current_user)
       @book.bookmarks.where(user: current_user).destroy_all
     else
-      @book.likes.create!(user: current_user)
+      @book.bookmarks.create!(user: current_user)
     end
-
-    respond_to do |format|
-      format.html { redirect_to @book }
-      format.js
-    end
+    redirect_to @book
   end
 
   def borrow
