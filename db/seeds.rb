@@ -1,10 +1,7 @@
 images_path = Rails.root.join('db', 'seed_images')
-puts images_path
 image_files = Dir[images_path.join('*')]
-puts image_files
 
 5.times do
-  puts 'here'
   book = Book.new(
     name: Faker::Book.title,
     author_name: Faker::Book.author,

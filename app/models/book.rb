@@ -4,7 +4,6 @@ class Book
 
   field :name, type: String
   field :slug, type: String
-
   field :author_name, type: String
   field :description, type: String
   field :image, type: String

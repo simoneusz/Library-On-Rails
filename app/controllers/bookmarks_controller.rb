@@ -25,7 +25,6 @@ class BookmarksController < ApplicationController
   private
 
   def set_book
-    logger.info("PARAMS: #{params[:book_id]}")
     @book = Book.find_by(slug: params[:book_id])
   end
 end

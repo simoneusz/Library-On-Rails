@@ -4,7 +4,7 @@ class RatingsController < ApplicationController
     @rating = @book.ratings.find_or_create_by(user: current_user)
 
     if @rating.update(rating_params)
-      flash[:notice] = 'Спасибо за вашу оценку!'
+      flash[:notice] = 'Thanks for your rating!'
     else
       flash[:alert] = @rating.errors.full_messages.to_sentence
     end
