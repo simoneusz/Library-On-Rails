@@ -35,7 +35,11 @@ body{
 
 // MEDIA media Media
 
-@media (max-width: 320px) {}
+@media (max-width: 320px) {
+  .aside-bg-image{
+    display: none;
+  }
+}
 @media (max-width: 768px) {
   section {
     width: 100%;
@@ -59,6 +63,7 @@ body{
     align-self: center;
     flex-direction: column;
     align-items: center;
+    position: relative;
     width: 100%;
   }
   .card-wrapper{
@@ -76,12 +81,12 @@ body{
     align-items: center;
   }
   .aside-bg-image{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: absolute;
+    display: block;
     background: center no-repeat;
     background-size: cover;
+    filter: blur(5px);
+    z-index: -1;
   }
 }
 @media (max-width: 1220px) {}

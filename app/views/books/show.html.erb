@@ -1,14 +1,15 @@
 <div class="card-wrapper">
   <% if @book.image.present? %>
     <aside
-      class="card-aside bg-image"
+      class="card-aside bg-image py-2 my-2"
     >
-      <div class="aside-bg-image bg-image w-100" style="<%= "background-image: url('#{@book.image.url}');" %>">
-        <div class="book-image mt-3">
-          <%= image_tag @book.image.url, alt: @book.name, class: "img-thumbnail" %>
-        </div>
-        <%= book_action_helper(@book, current_user) %>
+      <div class="aside-bg-image bg-image w-100 h-100" style="<%= "background-image: url('#{@book.image.url}');" %>">
       </div>
+      <div class="book-image mt-3">
+        <%= image_tag @book.image.url, alt: @book.name, class: "img-thumbnail" %>
+      </div>
+      <%= book_action_helper(@book, current_user) %>
+
     </aside>
   <% end %>
   <div class="card-main">
