@@ -2,9 +2,11 @@
   <% books.each do |book| %>
     <div class="card-item newest">
       <%= link_to book_path(book), class: "card-link newest" do %>
-        <div class="card-image newest">
-          <%= image_tag book.image.url, alt: book.name, class: "card-img" %>
-        </div>
+        <% if book.image.present? %>
+          <div class="card-image newest">
+            <%= image_tag book.image.url, alt: book.name, class: "card-img" %>
+          </div>
+        <% end %>
         <div class="card-info newest">
           <div class="card-title newest"><%= book.name.truncate(15) %></div>
           <div class="card-author newest text-muted">By:  <%= book.author_name.truncate(15) %></div>
