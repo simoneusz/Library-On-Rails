@@ -20,7 +20,7 @@ class Book
   has_many :likes, as: :likeable, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 
-  validates :name, :author_name, :description, presence: true
+  validates :name, :author_name, :description, :image, presence: true
   validates :name, :slug, uniqueness: true
   validates :description, length: { maximum: 1000 }
 
