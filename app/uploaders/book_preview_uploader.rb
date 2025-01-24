@@ -13,7 +13,7 @@ class BookPreviewUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{secure_token}.#{file.extension}" if original_filename
+    "#{secure_token}.#{file.extension}"
   end
 
   protected
