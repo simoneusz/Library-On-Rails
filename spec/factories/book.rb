@@ -3,6 +3,6 @@ FactoryBot.define do
     name { SecureRandom.urlsafe_base64 }
     author_name { Faker::Book.author }
     description { Faker::Lorem.paragraph(sentence_count: 5) }
-    image { File.open(Dir[Rails.root.join('db', 'seed_images', '*')].sample) }
+    image { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'fixtures', 'test_image.png'), 'image/jpeg') }
   end
 end

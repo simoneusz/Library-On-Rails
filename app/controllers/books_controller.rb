@@ -5,9 +5,6 @@ class BooksController < ApplicationController
   add_breadcrumb '<i class="bi bi-house"></i>'.html_safe, :root_path
   add_breadcrumb 'books', :books_path
   def index
-    # TODO: RANSACK
-    # @q = Book.page(params[:page]).ransack(params[:q])
-    # @books = @q.result.page(params[:page]).per(5)
     @top_books = Book.order_by(average_rating: :desc).limit(7)
     @books = Book.page(params[:page]).per(20)
   end
@@ -51,16 +48,12 @@ class BooksController < ApplicationController
   def like
     if @book.liked_by?(current_user)
       @book.likes.where(user: current_user).destroy_all
-      @book.inc(likes_count: -1)
+      @book.inc(likes_count: -1) if @book.likes.count.positive?
     else
       @book.likes.create!(user: current_user)
       @book.inc(likes_count: 1)
     end
-
-    respond_to do |format|
-      format.html { redirect_to @book }
-      format.js
-    end
+    redirect_to @book
   end
 
   def bookmark
