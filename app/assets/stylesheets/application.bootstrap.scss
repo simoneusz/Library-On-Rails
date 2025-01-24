@@ -75,6 +75,14 @@ body{
   .card-main{
     align-items: center;
   }
+  .aside-bg-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: center no-repeat;
+    background-size: cover;
+  }
 }
 @media (max-width: 1220px) {}
 @media (max-width: 1440px) {}

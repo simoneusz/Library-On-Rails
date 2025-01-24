@@ -2,12 +2,13 @@
   <% if @book.image.present? %>
     <aside
       class="card-aside bg-image"
-      style="<%= "background-image: url('#{@book.image.url}');" if request.user_agent =~ /Mobile|Tablet/ %>"
     >
-      <div class="book-image mt-3">
-        <%= image_tag @book.image.url, alt: @book.name, class: "img-thumbnail" %>
+      <div class="aside-bg-image bg-image w-100" style="<%= "background-image: url('#{@book.image.url}');" %>">
+        <div class="book-image mt-3">
+          <%= image_tag @book.image.url, alt: @book.name, class: "img-thumbnail" %>
+        </div>
+        <%= book_action_helper(@book, current_user) %>
       </div>
-      <%= book_action_helper(@book, current_user) %>
     </aside>
   <% end %>
   <div class="card-main">
