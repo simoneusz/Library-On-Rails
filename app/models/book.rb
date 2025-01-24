@@ -1,6 +1,7 @@
 class Book
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Ransack::Adapters
 
   field :id, type: Integer
   field :name, type: String
@@ -22,7 +23,7 @@ class Book
   has_many :bookmarks, dependent: :destroy
 
   validates :name, :author_name, :description, presence: true
-
+  validates :name, uniqueness: true
   index({ average_rating: -1 })
 
   before_save :set_slug
