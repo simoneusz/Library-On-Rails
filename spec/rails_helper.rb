@@ -17,7 +17,8 @@ end
 
 RSpec.configure do |config|
   config.include Mongoid::Matchers, type: :model
-  config.include Devise::Test::ControllerHelpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :requests
 
   config.include FactoryBot::Syntax::Methods
   # Remove this line to enable support for ActiveRecord
