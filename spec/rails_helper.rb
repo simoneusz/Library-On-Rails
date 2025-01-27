@@ -21,7 +21,6 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :requests
 
   config.include FactoryBot::Syntax::Methods
-  # Remove this line to enable support for ActiveRecord
   config.use_active_record = false
 
   config.infer_spec_type_from_file_location!
